@@ -71,7 +71,8 @@ public class Task04Collectors {
             );
         }
 
-        String withErrors = LOG.stream().filter(l -> l.level.equals("ERROR")).map(l -> l.service).distinct().collect(Collectors.joining(" | "));
+        String withErrors = LOG.stream().filter(l -> l.level.equals("ERROR"))
+                .map(l -> l.service).distinct().collect(Collectors.joining(" | "));
         Long slowCount = LOG.stream().map(l -> l.ms).filter(l -> l > 500).count();
         Integer msSum = LOG.stream().map(l -> l.ms).reduce(0, Integer::sum);
 
