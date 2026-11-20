@@ -15,7 +15,7 @@ public class Task01AnonymousClass {
     public static void main(String[] args) {
         List<String> words = new ArrayList<>(List.of("lambda", "java", "stream", "api"));
 
-        words.sort((a, b) -> a.length() - b.length());
+        words.sort(Comparator.comparingInt(String::length));
 
         System.out.println(words);
 
